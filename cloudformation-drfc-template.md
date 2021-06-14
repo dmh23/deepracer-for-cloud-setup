@@ -72,13 +72,25 @@ If you see: "The version of SSM Agent on this instance doesn't support shell pro
 Use your SSM terminal session to setup DRFC (DeepRacer-For-Cloud) as follows. These are once-only steps.
 
 ## Download Latest Tracks
-It is currently necessary to download a newer version of the Community code in order to train on the latest (May 2021) tracks.
+It is currently necessary to download a newer version of the Community code in order to train on the latest (June 2021) tracks.
 
 Use the following command to download the newer Docker image:
 ````docker pull awsdeepracercommunity/deepracer-robomaker:4.0.5-gpu````
 
 Then configure DRFC to use it by editing the file **system.env**, changing the setting of $DR_ROBOMAKER_IMAGE as follows:
 ````DR_ROBOMAKER_IMAGE=4.0.5-gpu````
+
+Finally tell DRFC to use the new configuration:
+````dr-update````
+
+## Optional - Upgrade to Latest Sagemaker Image
+There is also a version 4 release of the Sagemaker docker image.
+
+If you want to use it, download using the following command:
+````docker pull awsdeepracercommunity/deepracer-sagemaker:4.0.0-gpu````
+
+Then configure DRFC to use it by editing the file **system.env**, changing the setting of $DR_SAGEMAKER_IMAGE as follows:
+````DR_SAGEMAKER_IMAGE=4.0.0-gpu````
 
 Finally tell DRFC to use the new configuration:
 ````dr-update````
